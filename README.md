@@ -1,51 +1,134 @@
 # OOAD-WEEK08
 
-## Use Case Diagram (ภาษาไทย)
-* บรรยายเรื่อง UML โดย อ.ปานใจ  
+## Use Case Diagram 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/0eq2FGEQul8/0.jpg)](http://www.youtube.com/watch?v=0eq2FGEQul8 "บรรยายเรื่อง UML โดย อ.ปานใจ  " target="_blank") 
+###Usecase Diagram 1
 
-* เรียนการออกแบบโปรแกรมด้วย UML กับโปรเอิ๊ก ตอนที่ 1 การเขียน Requirement Card และ Use case   
+Code
+```
+@startuml
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/u9sNT6x0Mlo/0.jpg)](http://www.youtube.com/watch?v=u9sNT6x0Mlo "เรียนการออกแบบโปรแกรมด้วย UML กับโปรเอิ๊ก ตอนที่ 1 การเขียน Requirement Card และ Use case " target="_blank") 
+User -> (Withdraw Cash)
+User -> (Check Balance)
+User -> (Transfer)
+User -> (Make Donation)
 
-* How to draw a UML Use Case Diagram
+@enduml
+```
+Diagram
+<img src="https://github.com/pongsakorn194/OOAD-WEEK08/blob/master/Homework/usecase%20diagram01.png?raw=true">
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/UzprPX82Nac/0.jpg)](http://www.youtube.com/watch?v=UzprPX82Nac "How to draw a UML Use Case Diagram" target="_blank") 
 
-## Use Case Diagram Tutorial (VTC)
+###Usecase Diagram 2
 
-* 3.01_Use Case Basics  
+Code
+```
+@startuml
+skinparam handwritten true
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/tLJXJLfLCCM/0.jpg)](http://www.youtube.com/watch?v=tLJXJLfLCCM " 3.01_Use Case Basics " target="_blank") 
+skinparam usecase {
+	BackgroundColor yellow
+	BorderColor DarkSlateGray
 
-* 3.02_Modeling Use Case Elements  
+	ArrowColor Olive
+	ActorBorderColor black
+	ActorFontName Courier
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/_JCsqdNf8bA/0.jpg)](http://www.youtube.com/watch?v=_JCsqdNf8bA " 3.02_Modeling Use Case Elements " target="_blank") 
- 
-* 3.03_A Use Case Diagram for an ATM  
+	ActorBackgroundColor<< Human >> Gold
+}
+(log on) as (Use) 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/SmcBTsPsbIY/0.jpg)](http://www.youtube.com/watch?v=SmcBTsPsbIY " 3.03_A Use Case Diagram for an ATM" target="_blank") 
+teacher -> (maintain question)
+teacher --> (Use)
+teacher -> (maintain user)
+teacher -> (difficulty)
 
- 
+child --> (Use)
+child --> (game)
 
-* 3.04_The ''include'' Dependency  
+@enduml
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/q7O2EAZ_s7M/0.jpg)](http://www.youtube.com/watch?v=q7O2EAZ_s7M " 3.04_The ''include'' Dependency " target="_blank") 
+```
+Diagram
+<img src="https://github.com/pongsakorn194/OOAD-WEEK08/blob/master/Homework/usecase%20diagram02.png?raw=true">
 
- 
 
-* 3.05_The ''extend'' Dependency  
+###Usecase Diagram 3
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/bL_Bl_Xl7wQ/0.jpg)](http://www.youtube.com/watch?v=bL_Bl_Xl7wQ " 3.05_The ''extend'' Dependency" target="_blank") 
+Code
+```
+@startuml
+left to right direction
+skinparam packageStyle rect
+actor representative
+actor passenger
+rectangle service {
+  representative -- (checkin)
+  (checkin) -- passenger
+  passenger -- (automatedcheckin)
+  passenger -- (expresscheckin)
+  passenger -- (boarding)
+}
+@enduml
+```
+Diagram
+<img src="https://github.com/pongsakorn194/OOAD-WEEK08/blob/master/Homework/usecase%20diagram03.png?raw=true">
 
- 
-* 3.06_Generalization  
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/x5LkaZlLT28/0.jpg)](http://www.youtube.com/watch?v=x5LkaZlLT28 " 3.06_Generalization" target="_blank") 
+###Usecase Diagram 4
 
- 
-* 3.07_Putting It All Together  
+Code
+```
+@startuml
+left to right direction
+skinparam packageStyle rect
+actor tradingmanager
+actor trader
+actor salesperson
+actor accountingsystem
+rectangle tradingsystem {
+  tradingmanager -- (setlimit)
+  trader -- (analyzerisk)
+  trader -- (capturedeal)
+  trader -- (pricedeal)
+  salesperson -- (capturedeal) 
+  salesperson -- (pricedeal)
+  accountingsystem -- (updateaccounts)
+  
+  (analyzerisk) .> (valuedeal) : include
+  (pricedeal) .> (valuedeal) : include
+}
+@enduml
+```
+Diagram
+<img src="https://github.com/pongsakorn194/OOAD-WEEK08/blob/master/Homework/usecase%20diagram04.png?raw=true">
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/gYmOzpU7DDI/0.jpg)](http://www.youtube.com/watch?v=gYmOzpU7DDI " 3.07_Putting It All Together" target="_blank") 
- 
+
+###Usecase Diagram 5
+
+Code
+```
+@startuml
+left to right direction
+skinparam packageStyle rect
+
+actor customer
+actor clerk
+actor salesperson
+actor manager
+
+rectangle telephoneorder {
+
+  customer -- (checkstatus)
+  customer -- (priceorder)
+  customer -- (buildcredit)
+  clerk -- (fillorder)
+  salesperson -- (checkstatus) 
+  salesperson -- (priceorder)
+  manager-- (buildcredit) 
+}
+@enduml
+```
+Diagram
+<img src="https://github.com/pongsakorn194/OOAD-WEEK08/blob/master/Homework/usecase%20diagram05.png?raw=true">
+
